@@ -1,5 +1,3 @@
-// Tree Reduce - Trees
-
 /**
  * ============== About Reduce Method =====================
  *  The reduce() method executes a callback
