@@ -65,14 +65,24 @@ class Tree {
   }
 
   reduce(cb, accumulator) {
+    // there is no accumulator
     if (accumulator === undefined) {
-      this.value;
+      // set accumulator too current value
+      accumulator = this.value;
     } else {
-      cb(accumulator, this.value);
+      // otherwise set the accumulator to result of
+      // calling the cb on the accumulator and the current value
+      accumulator = cb(accumulator, this.value);
     }
+
+    // iterate over each child node
     this.children.forEach((child) => {
+      // set the accumulator to the results of invoking reduce
+      // on the current child passing it the callback and the accumulator
       accumulator = child.reduce(cb, accumulator);
     });
+
+    // return the accumulator
     return accumulator;
   }
 }
