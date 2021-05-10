@@ -76,11 +76,13 @@ class Tree {
     }
 
     // iterate over each child node
-    this.children.forEach((child) => {
+    for (let i = 0; i < this.children.length; i++) {
+      const child = this.children[i];
+
       // set the accumulator to the results of invoking reduce
       // on the current child passing it the callback and the accumulator
       accumulator = child.reduce(cb, accumulator);
-    });
+    }
 
     // return the accumulator
     return accumulator;
